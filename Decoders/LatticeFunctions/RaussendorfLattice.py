@@ -1,10 +1,7 @@
 import numpy as np
-from itertools import product
 import warnings
 
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 
 ################################################
