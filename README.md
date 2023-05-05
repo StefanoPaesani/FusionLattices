@@ -6,4 +6,4 @@ The code allows for the generation and analysis of a variety of lattices and fus
 
 The code has been developed and tested on Linux (Ubuntu 22.04.1 LTS). It should also run on Windows, though with slower performance.
 
-A walk-through of the different functionalities is described in detail in the examples provided in the Jupyter notebooks example_FFCC_fusion.ipynb, example_Raussendorf.ipynb, and example_Raussendorf_fusion.ipynb.
+A walk-through of the different functionalities is described in the example notebooks.
