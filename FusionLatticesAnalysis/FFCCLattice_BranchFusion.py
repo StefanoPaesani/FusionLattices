@@ -10,10 +10,14 @@ from pymatching import Matching
 cwd = os.getcwd()
 saving_folder = os.path.join(cwd, "SavingFolder")
 
-from LatticeFunctions.FFCCLattice_Fusion import FFCCLattice_BranchedFusions
-from linear_algebra_inZ2 import loss_decoding_gausselim_fast_trackqbts
-from misc_functions import merge_multiedges_in_Hmat_faster, get_multiedge_errorprob, get_Hmat_weights
-
+try:
+    from LatticeFunctions.FFCCLattice_Fusion import FFCCLattice_BranchedFusions
+    from linear_algebra_inZ2 import loss_decoding_gausselim_fast_trackqbts
+    from misc_functions import merge_multiedges_in_Hmat_faster, get_multiedge_errorprob, get_Hmat_weights
+except:
+    from .LatticeFunctions.FFCCLattice_Fusion import FFCCLattice_BranchedFusions
+    from .linear_algebra_inZ2 import loss_decoding_gausselim_fast_trackqbts
+    from .misc_functions import merge_multiedges_in_Hmat_faster, get_multiedge_errorprob, get_Hmat_weights
 
 ###########################################################################################
 ######## Functions for full parallelized decoder of errors & losses for Raussendorf lattice

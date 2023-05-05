@@ -10,8 +10,12 @@ from pymatching import Matching
 cwd = os.getcwd()
 saving_folder = os.path.join(cwd, "SavingFolder")
 
-from LatticeFunctions.FFCCLattice_Fusion import FFCCLattice_BranchedFusions
-from linear_algebra_inZ2 import loss_decoding_gausselim_fast_trackqbts
+try:
+    from LatticeFunctions.FFCCLattice_Fusion import FFCCLattice_BranchedFusions
+    from linear_algebra_inZ2 import loss_decoding_gausselim_fast_trackqbts
+except:
+    from .LatticeFunctions.FFCCLattice_Fusion import FFCCLattice_BranchedFusions
+    from .linear_algebra_inZ2 import loss_decoding_gausselim_fast_trackqbts
 
 
 ###########################################################################################

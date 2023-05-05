@@ -1,17 +1,28 @@
 import numpy as np
 import ctypes
 import platform ## Used in the c++ wrappers testing on which operating system we are working on
+import os
+
+cwd = os.getcwd()
+
 
 #########################################################################################################
 ###### Wrapper functions to make Gaussian elimination.
 ###### Sped-up version targeting loss decoding, binary operations performed in Cpp
 
 os_system = platform.system()
+
 if os_system == 'Windows':
-    LTcpp_header = ctypes.cdll.LoadLibrary('./libLossDec_win.dll')
+    try:
+        LTcpp_header = ctypes.cdll.LoadLibrary('./libLossDec_win.dll')
+    except:
+        LTcpp_header = ctypes.cdll.LoadLibrary(os.path.join(cwd, 'FusionLatticesAnalysis', 'libLossDec_win.dll'))
     print('Loaded C++ linear algebra functions for Windows OS')
 elif os_system == 'Linux':
-    LTcpp_header = ctypes.cdll.LoadLibrary('./libLossDec.so')
+    try:
+        LTcpp_header = ctypes.cdll.LoadLibrary('./libLossDec.so')
+    except:
+        LTcpp_header = ctypes.cdll.LoadLibrary(os.path.join(cwd, 'FusionLatticesAnalysis', 'libLossDec.so'))
     print('Loaded C++ linear algebra functions for Linux OS')
 else:
     raise ValueError('Os system not supported: only Windows or Linux')
